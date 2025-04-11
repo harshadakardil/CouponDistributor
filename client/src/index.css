@@ -317,4 +317,5 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     flex: 1;
     min-width: 250px;
-    max-width:
+    max-width: 350px;
+  }

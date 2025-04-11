@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const adminController = require('../controllers/adminController');
-const { authMiddleware } = require('../middleware/authMiddleware');
+const { authMiddleware } = require('../middleware/authmiddleware');
 
 // All admin routes are protected
 router.use(authMiddleware);

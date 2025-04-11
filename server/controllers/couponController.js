@@ -9,11 +9,10 @@ exports.claimCoupon = async (req, res) => {
     // Generate or get session ID
     let sessionId = req.cookies.sessionId;
     if (!sessionId) {
-      sessionId = uuidv4();
       res.cookie('sessionId', sessionId, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
+        secure: false, // 👈 MUST be false for localhost
+        maxAge: 30 * 24 * 60 * 60 * 1000
       });
     }
     
@@ -69,3 +68,4 @@ exports.claimCoupon = async (req, res) => {
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 };
+

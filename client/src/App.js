@@ -10,7 +10,7 @@ import NotFound from './pages/NotFound';
 import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import './App.css';
+import './index.css';
 
 function App() {
   return (
