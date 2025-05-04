@@ -1,0 +1,23 @@
+{
+  "name": "coupon-distributor",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "start": "cd client && npm start",
+    "build": "cd client && npm install && npm run build",
+    "server": "cd server && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run start\""
+  },
+  "dependencies": {
+    "concurrently": "^8.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "mongoose": "^7.8.6"
+    }
+  }
+

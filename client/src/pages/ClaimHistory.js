@@ -17,8 +17,9 @@ const ClaimHistory = () => {
     setLoading(true);
     try {
       const response = await api.get('/api/admin/claims');
-      setClaims(response.data.claims);
+      setClaims(response.data.claims || []);
     } catch (error) {
+      setClaims([]); // Ensure claims is always an array on error
       setAlert({
         show: true,
         type: 'danger',
@@ -39,7 +40,7 @@ const ClaimHistory = () => {
         <Spinner />
       ) : (
         <div className="claims-container">
-          {claims.length === 0 ? (
+          {(claims && claims.length === 0) ? (
             <p>No coupon claims yet.</p>
           ) : (
             <table className="claims-table">
@@ -52,7 +53,7 @@ const ClaimHistory = () => {
                 </tr>
               </thead>
               <tbody>
-                {claims.map(claim => (
+                {(claims || []).map(claim => (
                   <tr key={claim._id}>
                     <td>{claim.couponId?.code || 'Unknown'}</td>
                     <td>{claim.ipAddress}</td>

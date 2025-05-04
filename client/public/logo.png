@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logo Implementation Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .code-block {
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    h2 {
+      margin-top: 30px;
+      color: #1976d2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Logo Implementation Guide</h1>
+  
+  <h2>1. Save the SVG file</h2>
+  <p>First, save the provided SVG code as "logo-source.svg"</p>
+  
+  <h2>2. Generate PNG files</h2>
+  <p>Use the SVG to generate the required PNG files at the specified dimensions:</p>
+  <ul>
+    <li>logo.png - 512x512 pixels</li>
+    <li>logo192.png - 192x192 pixels</li>
+    <li>logo512.png - 512x512 pixels</li>
+  </ul>
+  <p>You can use tools like Inkscape, Adobe Illustrator, or online converters to generate these PNGs from the SVG.</p>
+  
+  <h2>3. Generate favicon.ico</h2>
+  <p>Create the favicon.ico file containing multiple sizes (16x16, 24x24, 32x32, and 64x64). You can use online favicon generators like:</p>
+  <ul>
+    <li><a href="https://realfavicongenerator.net/">RealFaviconGenerator</a></li>
+    <li><a href="https://www.favicon-generator.org/">Favicon Generator</a></li>
+  </ul>
+  
+  <h2>4. Update your HTML</h2>
+  <div class="code-block">
+  <pre><code>&lt;!-- Basic favicon -->
+&lt;link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+
+&lt;!-- iOS icon -->
+&lt;link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+&lt;!-- Add to manifest.json -->
+&lt;!-- Make sure your manifest.json includes the logo references: -->
+</code></pre>
+  </div>
+  
+  <h2>5. Example manifest.json</h2>
+  <div class="code-block">
+  <pre><code>{
+  "short_name": "Coupon App",
+  "name": "Coupon Discount App",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1976d2",
+  "background_color": "#ffffff"
+}</code></pre>
+  </div>
+</body>
+</html>
